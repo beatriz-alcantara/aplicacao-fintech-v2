@@ -16,7 +16,6 @@
           Guia de Serviços e Agências
         </q-toolbar-title>
 
-        <div>Quasar v{{ $q.version }}</div>
       </q-toolbar>
     </q-header>
 
@@ -24,12 +23,12 @@
         v-model="drawer"
         show-if-above
         :width="200"
-        :breakpoint="500"
+        :breakpoint="1000"
         bordered
-        content-class="bg-grey-3"
+        content-class="bg-green-1"
       >
-          <q-list>
-            <q-item clickable  v-ripple to="/" exact>
+          <q-list class="text-light-green-7">
+            <q-item clickable  v-ripple to="/" exact >
               <q-item-section avatar>
                 <q-icon name="account_balance_wallet"/>
               </q-item-section>

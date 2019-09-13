@@ -48,15 +48,12 @@ export default {
         let i = index + 1
         if (res.data.value.length > i) return valor.NomeIf !== res.data.value[i].NomeIf
       })
-      console.log(dados)
       Nomeif = dados.map(value => {
         return value.NomeIf
       })
-      console.log(Nomeif)
       Nomeif.forEach((nome, posicao) => {
         agencia[posicao] = res.data.value.filter(valor => valor.NomeIf === nome)
       })
-      console.log(agencia)
       // Settando o array bancos
       Nomeif.forEach((instituicao, i) => {
         this.bancos.push({ NomeAgencia: instituicao, icon: 'home', children: agencia[i] })
