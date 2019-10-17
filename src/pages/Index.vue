@@ -1,27 +1,8 @@
 <template>
   <q-page class="container">
-    <q-select filled v-model="model" :options="options" label="Pessoa: Jurídica ou Física" />
+    <q-select filled v-model="pessoa" @input="setPessoa(pessoa)" :options="options" label="Pessoa: Jurídica ou Física" />
     <tabela-tipo-servico/>
-    <q-dialog v-model="paginaServico">
-      <div class="bg-teal">
-        <q-table :columns="colunas" :data="servicos" hide-header>
-          <template v-slot:body="props">
-            <q-tr :props="props">
-              <q-td key="ColunaUnica" :props="props">{{props.row.NomeServico}}</q-td>
-              <q-td align="left">
-                <q-btn
-                  color="light-green-7"
-                  @click="mostrarTaxa(props.row.NomeServico, model.charAt(0))"
-                >
-                  <q-icon name="navigate_next" />
-                </q-btn>
-              </q-td>
-            </q-tr>
-          </template>
-        </q-table>
-      </div>
-    </q-dialog>
-
+    <tabela-servicos/>
     <q-dialog v-model="alertPessoa">
       <q-card>
         <q-card-section>
@@ -31,7 +12,7 @@
         <q-card-section>Selecione o tipo de pessoa (Física ou Jurídica)</q-card-section>
 
         <q-card-actions align="right">
-          <q-btn flat label="OK" color="light-green-7" v-close-popup />
+          <q-btn flat label="OK" color="light-green-7" v-close-popup="1" />
         </q-card-actions>
       </q-card>
     </q-dialog>
@@ -74,36 +55,34 @@
 
 <script>
 import TabelaTipoServico from 'components/TabelaTipoServico'
+import TabelaServicos from 'components/TabelaServicos'
+import { mapState, mapMutations } from 'vuex'
 export default {
   name: 'PageIndex',
   components: {
-    TabelaTipoServico
+    TabelaTipoServico,
+    TabelaServicos
   },
   data () {
     return {
-      paginaServico: false,
-      model: '',
+      pessoa: '',
       taxas: [''],
-      alertPessoa: false,
-      alertServico: false,
       dTaxa: false,
-      options: ['Jurídica', 'Física'],
-      servicos: []
+      options: ['Jurídica', 'Física']
+    }
+  },
+  computed: {
+    get () {
+      return {
+        ...mapState('example', ['alertServico', 'alertPessoa'])
+      }
+    },
+    set: {
+      ...mapMutations('example', ['setAlertPessoa', 'setAlertServico'])
     }
   },
   methods: {
-    mostrarTaxa (servico, pessoa) {
-      this.$axios
-        .get(
-          `https://olinda.bcb.gov.br/olinda/servico/Informes_ListaValoresDeServicoBancario/versao/v1/odata/ListaValoresServicoBancario(PessoaFisicaOuJuridica=@PessoaFisicaOuJuridica,CodigoGrupoConsolidado=@CodigoGrupoConsolidado)?@PessoaFisicaOuJuridica='${pessoa}'&@CodigoGrupoConsolidado='11'&$top=100&$filter=NomeServico%20eq%20'${servico}'&$orderby=NomeServico%20asc&$format=json&$select=NomeServico,ValorMinimo,ValorMaximo,ValorMedio`
-        )
-        .then(resposta => {
-          this.taxas = resposta.data.value
-          console.log(this.taxas)
-        })
-      console.log(this.taxas)
-      if (this.taxas !== ['']) this.dTaxa = true
-    }
+    ...mapMutations('example', ['setPessoa'])
   }
 }
 </script>

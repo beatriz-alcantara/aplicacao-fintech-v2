@@ -6,7 +6,7 @@
         <q-td key="Acoes" align="right">
           <q-btn
             color="light-green-7"
-            @click="mostrarServico(props.row.TipoServico.slice(1), model.charAt(0))"
+            @click="mostrarServico(props.row.TipoServico.slice(1))"
           >Selecionar</q-btn>
         </q-td>
       </q-tr>
@@ -15,6 +15,7 @@
 </template>
 
 <script>
+import { mapState, mapActions } from 'vuex'
 export default {
   name: 'TabelaTipoServico',
   data () {
@@ -56,27 +57,11 @@ export default {
       ]
     }
   },
+  computed: {
+    ...mapState('example', ['model'])
+  },
   methods: {
-    mostrarServico (tipo, pessoa) {
-      this.receberServicos(tipo, pessoa).then(res => {
-        this.servicos = res
-        if (this.servicos.length !== 0 && this.model !== '') { this.paginaServico = true }
-        if (this.model === '') this.alertPessoa = true
-        else if (this.servicos.length === 0) this.alertServico = true
-      })
-    },
-    receberServicos (filtro, pessoa) {
-      return new Promise((resolve, reject) => {
-        // Recebe todos os serviços disponiveis
-        this.$axios
-          .get(
-            `https://olinda.bcb.gov.br/olinda/servico/Informes_ListaValoresDeServicoBancario/versao/v1/odata/ListaValoresServicoBancario(PessoaFisicaOuJuridica=@PessoaFisicaOuJuridica,CodigoGrupoConsolidado=@CodigoGrupoConsolidado)?@PessoaFisicaOuJuridica='${pessoa}'&@CodigoGrupoConsolidado='11'&$top=100&$filter=contains(NomeServico%2C'${filtro}')&$format=json&$select=NomeServico,ValorMinimo,ValorMaximo,ValorMedio`
-          )
-          .then(resposta => {
-            resolve(resposta.data.value)
-          })
-      })
-    }
+    ...mapActions('example', ['mostrarServico'])
   }
 }
 </script>
