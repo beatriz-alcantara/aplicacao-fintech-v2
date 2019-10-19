@@ -1,6 +1,5 @@
 function setPessoa (state, valor) {
   state.model = valor
-  console.log('model', state.model)
 }
 
 function setAlertPessoa (state) {
@@ -8,7 +7,6 @@ function setAlertPessoa (state) {
 }
 
 const setServicos = (state, valor) => {
-  console.log('Executou setServiccos', valor)
   state.servicos = valor
 }
 
@@ -20,10 +18,20 @@ const setAlertServico = (state) => {
   state.alertServico = !state.alertServico
 }
 
+const setDTaxa = (state, valor) => {
+  state.dTaxa = valor
+}
+
+const setTaxas = (state, valor) => {
+  state.taxas = valor
+}
+
 export {
   setPessoa,
   setAlertPessoa,
   setServicos,
   setPaginaServico,
-  setAlertServico
+  setAlertServico,
+  setDTaxa,
+  setTaxas
 }

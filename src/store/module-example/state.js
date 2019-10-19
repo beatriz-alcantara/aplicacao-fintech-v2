@@ -3,5 +3,7 @@ export default {
   servicos: [],
   model: '',
   alertServico: false,
-  alertPessoa: false
+  alertPessoa: false,
+  taxas: [],
+  dTaxa: false
 }
