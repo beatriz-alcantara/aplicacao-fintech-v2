@@ -54,9 +54,6 @@ export default {
           this.bancos.push({ NomeAgencia: instituicao, icon: 'home', children: agencia[i] })
         })
       })
-  },
-  methods: {
-    dados () {}
   }
 }
 </script>

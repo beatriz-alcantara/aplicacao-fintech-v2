@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-dialog v-model="mostrarAlertPessoa">
+    <q-dialog v-model="mostrarAlertaPessoa">
       <q-card>
         <q-card-section>
           <div class="text-h6">Atenção</div>
@@ -17,11 +17,11 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapMutations } from 'vuex'
 export default {
   data () {
     return {
-      mostrarAlertPessoa: false
+      mostrarAlertaPessoa: false
     }
   },
   computed: {
@@ -29,8 +29,14 @@ export default {
   },
   watch: {
     alertPessoa (newValue, oldValue) {
-      this.mostrarAlertPessoa = newValue
+      this.mostrarAlertaPessoa = newValue
+    },
+    mostrarAlertaPessoa (newValue, oldValue) {
+      if (newValue === false) this.setAlertPessoa()
     }
+  },
+  methods: {
+    ...mapMutations('example', ['setAlertPessoa'])
   }
 }
 </script>
