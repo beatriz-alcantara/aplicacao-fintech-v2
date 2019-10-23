@@ -52,10 +52,18 @@ This project is divided in six components and two pages.
 
 #### Index page
 This image shows which components are used on index page.
+
 ![index-template](imgs/template-index.JPG)
 
 Next image presents variables used in q-select component and the method executed to change model value (variable that keeps globally type person 'Física' or 'Jurídica')
+
 ![index-variaveis](imgs/variaveis-index.JPG)
+
+### Components used on index page
+
+#### Type of Service Table
+
+
 
 ### Customize the configuration
 See [Configuring quasar.conf.js](https://quasar.dev/quasar-cli/quasar-conf-js).
