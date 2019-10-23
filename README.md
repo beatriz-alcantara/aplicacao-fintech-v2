@@ -63,6 +63,11 @@ Next image presents variables used in q-select component and the method executed
 
 #### Type of Service Table
 
+in this image shows assignment of "dados" to property data that will fill the content table, and the assignment of "colunas" to property columns that will define the columns table.
+
+![type of services](imgs/template-tabelaTipoServico.PNG)
+
+One good point to say about this piece of code is that meehod "mostrarServico()" makes request to the API and recives a parameter in which serves as filter
 
 
 ### Customize the configuration
