@@ -58,7 +58,7 @@ export default {
     }
   },
   computed: {
-    ...mapState('example', ['model', 'servico'])
+    ...mapState('example', ['model'])
   },
   methods: {
     ...mapActions('example', ['mostrarServico'])

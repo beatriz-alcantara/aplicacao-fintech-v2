@@ -15,7 +15,7 @@ import TabelaServicos from 'components/TabelaServicos'
 import AlertaPessoa from 'components/AlertaPessoa'
 import AlertaTaxa from 'components/AlertaTaxa'
 import AlertaServico from 'components/AlertaServico'
-import { mapState, mapMutations } from 'vuex'
+import { mapMutations } from 'vuex'
 export default {
   name: 'PageIndex',
   components: {
