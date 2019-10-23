@@ -31,11 +31,8 @@ export default {
       options: ['Jurídica', 'Física']
     }
   },
-  computed: {
-    ...mapState('example', ['alertServico', 'taxas'])
-  },
   methods: {
-    ...mapMutations('example', ['setAlertServico', 'setPessoa'])
+    ...mapMutations('example', ['setPessoa'])
   }
 }
 </script>
