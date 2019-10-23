@@ -41,13 +41,11 @@ export default {
     let agencia = []
     HTTPClient.get("https://olinda.bcb.gov.br/olinda/servico/Informes_Agencias/versao/v1/odata/Agencias?$top=550&$filter=UF%20eq%20'PA'&$orderby=NomeIf%20asc&$format=json&$select=NomeIf,NomeAgencia,Endereco,Numero,Bairro,Cep,Municipio,UF,DDD,Telefone")
       .then(res => {
-        dados = res.data.value.filter((valor, index) => {
-          let i = index + 1
-          if (res.data.value.length > i) return valor.NomeIf !== res.data.value[i].NomeIf
-        })
-        Nomeif = dados.map(value => {
-          return value.NomeIf
-        })
+        // Retorna um array com o nome repetido das instituições
+        dados = res.data.value.map(obj => obj.NomeIf)
+        // retorna um array so com o nome das instituições
+        Nomeif = [...new Set(dados)]
+        // Retorna um array de objetos que tem o nomeinstituição em comum pra cada posição de agencia
         Nomeif.forEach((nome, posicao) => {
           agencia[posicao] = res.data.value.filter(valor => valor.NomeIf === nome)
         })
