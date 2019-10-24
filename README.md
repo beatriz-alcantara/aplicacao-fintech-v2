@@ -55,7 +55,7 @@ This image shows which components are used on index page.
 
 ![index-template](imgs/template-index.JPG)
 
-Next image presents variables used in q-select component and the method executed to change model value (variable that keeps globally type person 'Física' or 'Jurídica')
+Next image presents variables used in q-select component and the method executed to change model value (variable that keeps globally person type 'Física' or 'Jurídica')
 
 ![index-variaveis](imgs/variaveis-index.JPG)
 
@@ -71,11 +71,15 @@ One good point to say about this piece of code is that the method "mostrarServic
 
 #### Service Table
 
-This image shows the template of service table. The main structure is a dialog component that depends on a variable called "servicos" to appear.
+This image shows the template of service table. The main structure is a dialog component that depends on a variable called "mostrarPaginServicos" to appear.
 
 ![template service table](imgs/template-tabelaServicos.JPG)
 
 The variable "servicos" is a vuex state and it is setted by the method "mostrarServico()" called on Type of Service Table (tabelaTipoServico.vue) component.
+
+To clarify what I'm saying see this image
+
+![variables service table](imgs/variaveis-tabelaServicos.JPG)
 
 ### Customize the configuration
 See [Configuring quasar.conf.js](https://quasar.dev/quasar-cli/quasar-conf-js).
