@@ -81,5 +81,14 @@ To clarify what I'm saying see this image
 
 ![variables service table](imgs/variaveis-tabelaServicos.JPG)
 
+The State "paginaServico" is the flag that controls when 'q-dialog' component has to be shown, but if we use it directly in 'v-model' of 'q-dialog' component we also have to declare a function setter to this variable. You can read about that [here.](https://br.vuejs.org/v2/guide/computed.html#Atribuicao-em-Dados-Computados)
+
+However we could do the same functionality using Vue watch layer, like this:
+
+![watch of service table](imgs/watch-tabelaServicos.JPG)
+
+This piece of code says that everytime the state "paginaServico" changed the variable "mostrarPaginaServico" receives the same value, and when "mostrarServico" changed the same logic repeats in reverse way.
+
+
 ### Customize the configuration
 See [Configuring quasar.conf.js](https://quasar.dev/quasar-cli/quasar-conf-js).
