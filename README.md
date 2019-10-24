@@ -67,8 +67,15 @@ in this image shows assignment of "dados" to property data that will fill the co
 
 ![type of services](imgs/template-tabelaTipoServico.PNG)
 
-One good point to say about this piece of code is that meehod "mostrarServico()" makes request to the API and recives a parameter in which serves as filter
+One good point to say about this piece of code is that the method "mostrarServico()" makes a request to the API and receives a parameter in which serves as a filter. The parameter passed to method is the service name without first letter, it is done because the API has a filter that search data in which contains certain piece of word. Then if you put as filter the word "inanceiro" the API certainly will return to you data containing "Financeiro" or "financeiro", but if you use as filter the word "financeiro" the API will return to you just data containing "financeiro", the others with capital letter will be ignored in the search.
 
+#### Service Table
+
+This image shows the template of service table. The main structure is a dialog component that depends on a variable called "servicos" to appear.
+
+![template service table](imgs/template-tabelaServicos.JPG)
+
+The variable "servicos" is a vuex state and it is setted by the method "mostrarServico()" called on Type of Service Table (tabelaTipoServico.vue) component.
 
 ### Customize the configuration
 See [Configuring quasar.conf.js](https://quasar.dev/quasar-cli/quasar-conf-js).
