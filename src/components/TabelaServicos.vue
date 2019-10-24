@@ -27,13 +27,12 @@ import { mapState, mapActions, mapMutations } from 'vuex'
 export default {
   data () {
     return {
-      colunas: [{ name: 'ColunaUnica', field: 'TipoServico', align: 'center' }],
-      alertServico: false,
+      colunas: [{ name: 'ColunaUnica', field: 'Servico', align: 'center' }],
       mostrarPaginaServico: false
     }
   },
   computed: {
-    ...mapState('example', ['model', 'servicos', 'paginaServico'])
+    ...mapState('example', ['servicos', 'paginaServico'])
   },
   watch: {
     paginaServico (newValue, oldValue) {
