@@ -124,7 +124,7 @@ And saved in the local variable "bancos".
 
 ![](imgs/variaveis-Arvore.JPG)
 
-This local variable is passed to "q-input" component to fill the tree content.
+This local variable is passed to "q-tree" component to fill the tree content.
 
 ### Customize the configuration
 See [Configuring quasar.conf.js](https://quasar.dev/quasar-cli/quasar-conf-js).
