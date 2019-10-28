@@ -32,7 +32,7 @@ Attention: to execute the command above you have to install quasar/cli previousl
 When you run the command 'quasar create project-name', quasar/cli will ask you some questions. You have to pay attention to the following question:
 
 ```bash
-Check the features needed for your project:
+Check the features needed to your project:
 ```
 Then to this project you should mark to install ESLint, Axios and Vuex.
 
