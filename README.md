@@ -71,7 +71,7 @@ One good point to say about this piece of code is that the method "mostrarServic
 
 #### Service Table
 
-This image shows the template of service table. The main structure is a dialog component that depends on a variable called "mostrarPaginServicos" to appear.
+This image shows the template of service table. The main structure is a dialog component that depends on a variable called "mostrarPaginServicos" to appear. The method "mostrarTaxa" is an action and it is responsable for request the services rates.
 
 ![template service table](imgs/template-tabelaServicos.JPG)
 
@@ -89,6 +89,42 @@ However we could do the same functionality using Vue watch layer, like this:
 
 This piece of code says that everytime the state "paginaServico" changed the variable "mostrarPaginaServico" receives the same value, and when "mostrarServico" changed the same logic repeats in reverse way.
 
+### Service Rates
+
+This dialog component will show the rates of each service.
+
+![rates alert](imgs/template-alertaTaxa.JPG)
+
+The variable "taxas" is a vuex state.
+The state "taxas" has values of minimum, maximum and average value.
+"alertTaxa" is a local variable.
+
+"alertTaxa" is setted in:
+
+![watch](imgs/watch-alertaTaxa.JPG)
+
+Every time that "dTaxa" changes "alertTaxa" will receive the same value, and every time that "alertTaxa" changes this process repeats in reverse way.
+
+### Alert Kind of Person
+
+This component was created to appear always that a service type is requested without a specific person defined.
+
+![alert person template](imgs/template-alertaPessoa.JPG)
+
+The same logic used in the others dialogs components is kept to this component.
+
+### Tree component
+
+This component is used to show all banks and agencies of a state.
+
+The data is obtained by the method called in mounted.
+![](imgs/mounted-Arvore.JPG)
+
+And saved in the local variable "bancos".
+
+![](imgs/variaveis-Arvore.JPG)
+
+This local variable is passed to "q-input" component to fill the tree content.
 
 ### Customize the configuration
 See [Configuring quasar.conf.js](https://quasar.dev/quasar-cli/quasar-conf-js).
