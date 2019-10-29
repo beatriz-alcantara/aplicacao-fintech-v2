@@ -2,6 +2,9 @@
 
 Uma simples aplicação com o framework Quasar e a API do Bacen.
 
+## Translation
+- [English version](TRANSLATION.md)
+
 ## Tecnologias
 - [Quasar Framework](https://quasar.dev)
 - [API do Bacen](https://dadosabertos.bcb.gov.br/dataset?res_format=API)
