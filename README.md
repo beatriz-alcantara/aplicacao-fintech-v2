@@ -2,6 +2,8 @@
 
 Uma simples aplicação com o framework Quasar e a API do Bacen.
 
+![logo technologies](imgs/logo-tecnologias.png)
+
 ## Translation
 - [English version](TRANSLATION.md)
 
